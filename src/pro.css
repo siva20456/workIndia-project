@@ -1,0 +1,153 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.header-main-cont{
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;  
+    background-color: rgb(46, 43, 43);
+}
+
+
+.header-title{
+    color: #ffffff;
+    font-size:20px;
+    font-weight: bold;
+}
+
+.header-items-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-around;
+    width: 50%;
+}
+
+.header-items{
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media screen and (max-width:900px) {
+    .header-main-cont{
+        justify-content: center;
+    }
+    .header-title{
+        font-size: 14px;
+    }
+    .header-items{
+        font-size: 12px;
+        margin-left: 30px
+    }
+}
+
+
+
+
+.selected{
+    color: blue;
+}
+
+.input-cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-search-ele{
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.header-btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:680px) {
+    .header-items-cont{
+        flex-direction: column;
+    }
+
+
+}
+
+@media screen and (max-width:420px) {
+    .header-items-cont{
+        flex-direction: column;
+    }
+    .header-search-ele{
+        width: 100px;
+    }
+
+}
+
+
+.products-cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center ;
+    flex-wrap: wrap;
+    background-color: black;
+    padding: 10px;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: #ffffff;
+    padding: 20px;
+}
+
+
+.movie-card{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 10px;
+}
+
+.movie-card-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.text{
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 0;
+}
+
+
+.movie_poster_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.movie-desc{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
