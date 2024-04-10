@@ -4,7 +4,7 @@ import Header from './Header';
 
 const MovieDetail = () => {
 
-    const [movie,setMovie] = useState({})
+    const [movie,setMovie] = useState({poster_path:''})
     const [castData,setCast] = useState([])
     const {id} = useParams()
 
@@ -23,12 +23,6 @@ const MovieDetail = () => {
         const res1 = await fetch(cast_url)
         const cast_data = await res1.json()
         console.log(data,cast_data)
-        let {backdrop_path} = movie
-        if (backdrop_path !== null) {
-            first = backdrop_path
-            sec = backdrop_path.slice(1, backdrop_path.length)
-            console.log(sec)
-        }
         setMovie(data)
         setCast(castData.cast)
     }
@@ -41,9 +35,9 @@ const MovieDetail = () => {
     return(
         <div className='home-container'>
             <Header Search={Search} />
-            <div className='movie-poster-cont' style={{backgroundImage:new URL(`https://image.tmdb.org/t/p/w500${first}${sec}`)}}>
+            <div className='movie-poster-cont'>
                 <div className='movie-desc'>
-                    <img src={`https://image.tmdb.org/t/p/w500${first}${sec}`} alt='movie' />
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}${movie.poster_path.slice(1,movie.poster_path.length)}`} alt='movie' />
                     <div className='movie-details'>
                         <h1 className='header-items'>{movie.title}</h1>
                         <p style={{color:'white'}}>Rating:{movie.vote_average}</p>
