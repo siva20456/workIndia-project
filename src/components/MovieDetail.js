@@ -24,7 +24,8 @@ const MovieDetail = () => {
         const cast_data = await res1.json()
         console.log(data,cast_data)
         setMovie(data)
-        setCast(castData['cast'])
+        setCast(cast_data["cast"])
+        // alert(c)
     }
 
     const Search = (url) => {
