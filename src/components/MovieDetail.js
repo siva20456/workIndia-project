@@ -23,14 +23,14 @@ const MovieDetail = () => {
         const res1 = await fetch(cast_url)
         const cast_data = await res1.json()
         console.log(data,cast_data)
-        let {poster_path} = movie
-        if (poster_path !== null) {
-            first = poster_path
-            sec = poster_path.slice(1, poster_path.length)
+        let {backdrop_path} = movie
+        if (backdrop_path !== null) {
+            first = backdrop_path
+            sec = backdrop_path.slice(1, backdrop_path.length)
             console.log(sec)
         }
         setMovie(data)
-        setCast(castData)
+        setCast(castData.cast)
     }
 
     const Search = (url) => {
@@ -54,7 +54,7 @@ const MovieDetail = () => {
             </div>
             <h1 className='header-items'>Cast</h1>
             <div style={{display:'flex',flexDirection:'column',flexWrap:'wrap'}}>
-                {castData.map(e => <img src={e.url} style={{width:'15%',margin:10}} />)}
+                {castData.map(e => <><img key={e.id} src={`https://image.tmdb.org/t/p/w500${e.profile_path}${e.profile_path.slice(1,e.profile_path.length)}`} style={{width:'15%',margin:10}} /><p>{e.original_name}</p></>)}
             </div>
         </div>
     )
