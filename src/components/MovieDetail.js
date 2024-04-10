@@ -5,7 +5,7 @@ import Header from './Header';
 const MovieDetail = () => {
 
     const [movie,setMovie] = useState({poster_path:''})
-    const [castData,setCast] = useState([])
+    const [castData,setCast] = useState([{profile_path:'/fuTEPMsBtV1zE98ujPONbKiYDc2.jpg'}])
     const {id} = useParams()
 
     useEffect(() => {
@@ -34,11 +34,11 @@ const MovieDetail = () => {
 
 
     return(
-        <div className='home-container'>
+        <div className='movie-detail-container'>
             <Header Search={Search} />
             <div className='movie-poster-cont'>
                 <div className='movie-desc'>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}${movie.poster_path.slice(1,movie.poster_path.length)}`} alt='movie' />
+                    <img src={movie.poster_path !== null ?`https://image.tmdb.org/t/p/w500${movie.poster_path}${movie.poster_path.slice(1,movie.poster_path.length)}`:''} alt='movie' style={{width:'10%'}} />
                     <div className='movie-details'>
                         <h1 className='header-items'>{movie.title}</h1>
                         <p style={{color:'white'}}>Rating:{movie.vote_average}</p>
@@ -48,8 +48,8 @@ const MovieDetail = () => {
                 <p style={{color:'white'}}>{movie.overview}</p>
             </div>
             <h1 className='header-items'>Cast</h1>
-            <div style={{display:'flex',flexDirection:'column',flexWrap:'wrap'}}>
-                {castData.map(e => <><img key={e.id} src={`https://image.tmdb.org/t/p/w500${e.profile_path}${e.profile_path.slice(1,e.profile_path.length)}`} style={{width:'15%',margin:10}} /><p>{e.original_name}</p></>)}
+            <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}}>
+                {castData.map(e => <div style={{display:'flex',flexDirection:'column',alignItems:'center',width:'20%'}}><img key={e.id} src={e.profile_path !== null ? `https://image.tmdb.org/t/p/w500${e.profile_path}${e.profile_path.slice(1,e.profile_path.length)}`:''} style={{width:'50%',margin:10}} /><p style={{color:'white'}}>{e.original_name}</p></div>)}
             </div>
         </div>
     )

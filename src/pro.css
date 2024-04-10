@@ -144,10 +144,23 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 10px;
+    background-color: black;
 }
 
 .movie-desc{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding: 20px;
+}
+
+.movie-detail-container{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.movie-details{
+    margin: 30px;
 }
